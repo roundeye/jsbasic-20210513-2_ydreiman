@@ -3,9 +3,7 @@ function factorial(n) {
 
   if (n === 0 || n === 1) {
     return result;
-  }
-
-  if (n > 1) {
+  } else {
     for (let i = 2; i <= n; i++) {
       result *= i;
     }
