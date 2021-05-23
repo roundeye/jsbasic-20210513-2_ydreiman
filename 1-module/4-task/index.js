@@ -1,4 +1,6 @@
 function checkSpam(str) {
-  return (str.toLowerCase().indexOf('1xBet'.toLowerCase()) !== -1 || 
-          str.toLowerCase().indexOf('XXX'.toLowerCase()) !== -1)
+  let value1 = '1xBet'.toLowerCase();
+  let value2 = 'XXX'.toLowerCase();
+  return (str.toLowerCase().indexOf(value1) !== -1 || 
+          str.toLowerCase().indexOf(value2) !== -1)
 }
