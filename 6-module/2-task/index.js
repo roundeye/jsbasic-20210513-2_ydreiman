@@ -5,7 +5,7 @@ export default class ProductCard {
     this.elem = document.createElement('div');
     this.elem.classList.add('card');
     this.render(product);
-    this.elem.closest('.card__button').addEventListener('click', (event) => this.onClick(event));
+    this.elem.addEventListener('click', (event) => this.onClick(event));
   }
 
   render(product) {
@@ -20,11 +20,17 @@ export default class ProductCard {
               <img src="/assets/images/icons/plus-icon.svg" alt="icon">
           </button>
       </div>
-    `;
+    `
   }
 
   onClick(event) {
-    let event = new CustomEvent('product-add', {bubbles: true, detail: product.id});
-    this.elem.dispatchEvent(event);
+ 
+    if (event.target.closest('.card__button')) {
+      let newEvent = new CustomEvent('product-add', {
+        detail: product.id, 
+        bubbles: true});
+      this.elem.dispatchEvent(newEvent);
+    }
   }
+
 }
